@@ -1,4 +1,5 @@
-void decentNumber(int n) {
+void decentNumber(int n)
+{
 
 }
 
