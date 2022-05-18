@@ -1,1 +1,4 @@
+void decentNumber(int n) {
+
+}
 
