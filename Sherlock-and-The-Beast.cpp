@@ -11,8 +11,9 @@ string rtrim(const string &);
  * The function accepts INTEGER n as parameter.
  */
 
-void decentNumber(int n) {
-
+void decentNumber(int n)
+{
+    std::cout << '\n';
 }
 
 int main()
