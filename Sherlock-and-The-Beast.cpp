@@ -13,7 +13,23 @@ string rtrim(const string &);
 
 void decentNumber(int n)
 {
-    std::cout << '\n';
+    int a = n;
+    
+    while (a % 3 !=0) a -= 5;
+    
+    if (a < 0 || n < 3)
+    {
+        cout << "-1";
+    }
+    else
+    {
+        for (int i = 0; i < a; ++i)
+            cout << '5';
+        for (int i = a; i < n; ++i)
+            cout << '3';
+    }
+    
+    cout << '\n';
 }
 
 int main()
