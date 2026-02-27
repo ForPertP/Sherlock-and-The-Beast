@@ -11,6 +11,23 @@ string rtrim(const string &);
  * The function accepts INTEGER n as parameter.
  */
 
+void decentNumber(int n) {
+    int a = n;
+    
+    while (a >= 0 && a % 3 != 0)
+        a -= 5;
+    
+    if (a < 0)
+    {
+        cout << "-1\n";
+        return;
+    }
+    
+    cout << string(a, '5') 
+         << string(n - a, '3') 
+         << '\n';
+}
+
 void decentNumber(int n)
 {
     int a = n;
