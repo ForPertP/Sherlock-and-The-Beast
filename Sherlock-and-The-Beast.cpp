@@ -28,26 +28,23 @@ void decentNumber(int n) {
          << '\n';
 }
 
-void decentNumber(int n)
+
+void decentNumber1(int n)
 {
-    int a = n;
-    
-    while (a % 3 !=0) a -= 5;
-    
-    if (a < 0 || n < 3)
+    for (int fives = n; fives >= 0; --fives)
     {
-        cout << "-1";
+        if (fives % 3 == 0 && (n - fives) % 5 == 0)
+        {
+            cout << string(fives, '5')
+                 << string(n - fives, '3')
+                 << '\n';
+            return;
+        }
     }
-    else
-    {
-        for (int i = 0; i < a; ++i)
-            cout << '5';
-        for (int i = a; i < n; ++i)
-            cout << '3';
-    }
-    
-    cout << '\n';
+
+    cout << "-1\n";
 }
+
 
 int main()
 {
@@ -68,24 +65,44 @@ int main()
     return 0;
 }
 
-string ltrim(const string &str) {
+string ltrim(const string &str)
+{
     string s(str);
-
     s.erase(
-        s.begin(),
-        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
+        s.begin(), find_if(s.begin(), s.end(), [](unsigned char ch) { return !isspace(ch); })
     );
-
     return s;
 }
 
-string rtrim(const string &str) {
+string rtrim(const string &str)
+{
     string s(str);
-
     s.erase(
-        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
-        s.end()
+        find_if(s.rbegin(), s.rend(), [](unsigned char ch) { return !isspace(ch); }).base(), s.end()
     );
-
     return s;
+}
+
+std::vector<string> split(const string &str)
+{
+    vector<string> tokens;
+    string_view str_view(str);
+    size_t start = 0;
+    size_t end = 0;
+
+    while ((end = str_view.find(' ', start)) != string_view::npos)
+    {
+        if (end > start)
+        {
+            tokens.emplace_back(str_view.substr(start, end - start));
+        }
+        start = end + 1;
+    }
+
+    if (start < str_view.size())
+    {
+        tokens.emplace_back(str_view.substr(start));
+    }
+
+    return tokens;
 }
