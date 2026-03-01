@@ -37,3 +37,19 @@ class Result
         Console.WriteLine("-1");
     }
 }
+
+
+class Solution
+{
+    public static void Main(string[] args)
+    {
+        int t = Convert.ToInt32(Console.ReadLine().Trim());
+
+        for (int tItr = 0; tItr < t; tItr++)
+        {
+            int n = Convert.ToInt32(Console.ReadLine().Trim());
+
+            Result.decentNumber(n);
+        }
+    }
+}
